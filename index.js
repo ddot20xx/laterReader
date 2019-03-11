@@ -13,6 +13,8 @@ const app = express()
 const Article = require('./db').Article
 const read = require('node-readability')
 
+app.use(express.static('static'))
+
 // const port = process.env.PORT || 3000
 app.set('port', process.env.PORT || 3000)
 
@@ -30,7 +32,7 @@ app.get('/', (req, res) => {
         if (err) {
             return next(err)
         }
-        res.send(articles)
+        res.redirect('/articles')
     })
 })
 
@@ -48,12 +50,13 @@ app.get('/articles', (req, res, next) => {
                 res.send(articles)
             }
         })
-    })    
+    })
 })
 
 app.post('/articles', (req, res, next) => {
     // const article = { title: req.body.title }
-    const url = req.body.url
+    const url = req.body
+    console.log('***', url)
     read(url, (err, result) => {
         // 结果有 .title, .content
         Article.new(

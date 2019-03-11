@@ -1,4 +1,10 @@
 <% include head %>
+<div class="input-group mb-3">
+    <input type="text" class="form-control" name="url" id="id-input-url" placeholder="输入要收藏的文章链接">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="id-button-submit" type="button">提交</button>
+        </div>
+</div>
 <ul>
   <% articles.forEach((article) => { %>
     <li>
