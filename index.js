@@ -19,7 +19,7 @@ app.use(express.static('static'))
 app.set('port', process.env.PORT || 3000)
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+// app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use('/css/bootstrap.css',
     express.static('node_modules/bootstrap/dist/css/bootstrap.css'))
@@ -55,8 +55,8 @@ app.get('/articles', (req, res, next) => {
 
 app.post('/articles', (req, res, next) => {
     // const article = { title: req.body.title }
-    const url = req.body
-    console.log('***', url)
+    const url = req.body.url
+    // console.log('***', url, typeof url)
     read(url, (err, result) => {
         // 结果有 .title, .content
         Article.new(
@@ -69,12 +69,18 @@ app.post('/articles', (req, res, next) => {
                 if (err) {
                     return next(err)
                 }
-                res.send('OK')
+                // res.send('OK')
+                Article.all((err, articles) => {
+                    if (err) {
+                        return next(err)
+                    }
+                    articles.push(article)
+                    res.redirect('/articles')
+                })
             }
         )
     })
-    // articles.push(article)
-    // res.send(article)
+
 })
 
 app.get('/articles/:id', (req, res, next) => {
