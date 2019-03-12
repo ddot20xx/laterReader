@@ -87,7 +87,7 @@ app.post('/articles', (req, res, next) => {
                         return next(err)
                     }
                     articles.push(article)
-                    res.redirect('/articles')
+                    res.redirect('/')
                 })
             }
         )

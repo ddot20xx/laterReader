@@ -22,6 +22,7 @@ const addArticle = function() {
         if(url) {
             ajax('post', '/articles', data, function(r) {
                 // console.log('收藏成功.', r.response)
+                document.location.reload()
             })
         } else {
             alert('请输入正确的文章链接。')
