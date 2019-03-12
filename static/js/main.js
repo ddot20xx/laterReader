@@ -25,7 +25,8 @@ const addArticle = function() {
                 document.location.reload()
             })
         } else {
-            // bootstrap 模态框
+            // bootstrap 模态框            
+            $('#modal-submit').modal()
         }
     })
 }
