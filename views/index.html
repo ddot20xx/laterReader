@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <title>我的收藏夹 -- 首页</title>
+    <style>
+        h2,
+        .input-group.mb-3 {
+            margin: 20px auto;
+        }
+        .article-item {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">我的收藏夹</h2>
+        <div class="input-group mb-3 col-6">
+            <input type="text" class="form-control" name="url" id="id-input-url" placeholder="输入要收藏的文章链接">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" id="id-button-submit" type="button">提交</button>
+                </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div >
+                <ul id="id-ul-content" ></ul>
+            </div>
+        </div>
+
+    </div>
+<script src="js/main.js"></script>
+</body>
+</html>
