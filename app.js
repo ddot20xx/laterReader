@@ -15,8 +15,8 @@ app.set('port', process.env.PORT || 3000)
 app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use('/css/bootstrap.css',
-    express.static('node_modules/bootstrap/dist/css/bootstrap.css'))
+app.use('/css/bootstrap.css', express.static('node_modules/bootstrap/dist/css/bootstrap.css'))
+app.use('/js/bootstrap.min.js', express.static('node_modules/bootstrap/dist/js/bootstrap.min.js'))
 
 const sendHtml = function(path, response) {
     let option = {

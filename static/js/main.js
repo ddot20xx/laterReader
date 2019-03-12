@@ -25,7 +25,8 @@ const addArticle = function() {
                 document.location.reload()
             })
         } else {
-            alert('请输入正确的文章链接。')
+            // bootstrap 模态框
+            
         }
     })
 }

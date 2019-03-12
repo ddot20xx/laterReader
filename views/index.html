@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/bootstrap.css">
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <title>我的收藏夹 -- 首页</title>
     <style>
         h2,
@@ -20,9 +22,38 @@
         <div class="input-group mb-3 col-6">
             <input type="text" class="form-control" name="url" id="id-input-url" placeholder="输入要收藏的文章链接">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" id="id-button-submit" type="button">提交</button>
+                    <button class="btn btn-outline-secondary" id="id-button-submit"
+                            type="button" data-toggle="modal" data-target="#modal-submit">
+                        提交
+                    </button>
                 </div>
         </div>
+
+        <!-- 模态框 -->
+        <div class="modal fade" id="modal-submit">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                <!-- 模态框头部 -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">ddot 温馨提示：</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+
+                    <!-- 模态框主体 -->
+                    <div class="modal-body text-info text-center">
+                        请输入正确的文章链接。。。
+                    </div>
+
+                    <!-- 模态框底部 -->
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
         <div class="row justify-content-md-center">
             <div >
                 <ul id="id-ul-content" ></ul>
