@@ -114,13 +114,14 @@ app.get('/article/:id', (req, res, next) => {
     // })
 })
 
-app.delete('/articles/:id', (req, res, next) => {
+app.delete('/delete/:id', (req, res, next) => {
     const id = req.params.id
     Article.delete(id, (err) => {
         if (err) {
             return new next(err)
         }
-        res.send({ message: 'deleted'})
+        res.redirect('/')
+        // res.send({ message: 'deleted'})
     })
 })
 

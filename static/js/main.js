@@ -26,7 +26,6 @@ const addArticle = function() {
             })
         } else {
             // bootstrap 模态框
-            
         }
     })
 }
@@ -35,7 +34,11 @@ const insertArticle = function(article) {
     let content = e('#id-ul-content')
     let title = article.title
     let id = article.id
-    let html = `<li class="article-item"><a href="/article/${id}">${title}</a></li>`
+    let html = `
+    <div class="form-inline">
+        <input type="button" class="btn btn-danger btn-sm btn-delete" value="删除">
+        <li class="article-item"><a href="/article/${id}">${title}</a></li>
+    </div>`
     content.insertAdjacentHTML('beforeend', html)
 }
 
@@ -53,9 +56,27 @@ const insertAllArticles = function() {
     })
 }
 
+const deleteArticle = function() {
+    let c = document.querySelector('#id-ul-content')
+    c.addEventListener('click', function(event) {
+        let t = event.target
+        if (t.tagName == 'INPUT') {
+            let a = t.nextElementSibling.firstChild
+            let id = a.href.split('/').slice(-1).toString()
+            let path = '/delete/' + id
+            ajax('delete', path, '', function(r) {
+                document.location.reload()
+                // console.log('delete success')
+            })
+        }
+    })
+
+}
+
 const __main = function() {
     addArticle()
     insertAllArticles()
+    deleteArticle()
 }
 
 __main()
