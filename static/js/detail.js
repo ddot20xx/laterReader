@@ -25,6 +25,8 @@ const showArticle = function(article) {
         </div>
     `
     post.insertAdjacentHTML('beforeend', html)
+    // 设置页面 title 未文章的标题
+    document.title = title
 }
 
 const init = function() {
